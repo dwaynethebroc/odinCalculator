@@ -60,3 +60,10 @@ div .row{
     font-weight: bolder;
     background-color: yellow;
 }
+
+.clear {
+    border: 1px solid black;
+    font-size: 30px;
+    font-weight: bolder;
+    background-color: salmon;
+}
