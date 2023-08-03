@@ -1,17 +1,53 @@
 body {
     background-color: tan;
+    display: flex;
+    flex-direction: column;
+    
 }
 
 div {
-    border: 1px solid black;
     flex-grow: 1;
     text-align: center;
+    padding: 20px;
+}
+
+.Calculator {
+    border: 1px solid black;
+    width: 600px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+
+    background-color: rgb(134, 140, 141);
+}
+
+.display {
+    border: 1px solid black;
+    font-size: 40px;
+    font-weight: bolder;
+    background-color: white;
 }
 
 div .row{
     display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid black;
+    background-color: tan;
 }
-
 .title {
     text-align: center;
+}
+
+.button {
+    border: 1px solid black;
+    font-size: 30px;
+    font-weight: bolder;
+
+    background-color: white;
+}
+
+.operator {
+    background-color: rgb(224, 97, 23);
 }
