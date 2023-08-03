@@ -55,6 +55,7 @@ function operate(a, b, c){
 }
 
 function solveForDisplay() {
+    
     const array = calcDisplayText.split(' ', 3);
     let firstNumber = Number(array[0]);
     let operator = array[1];
@@ -87,7 +88,7 @@ clearButton.addEventListener('click', event => {
  })
 
 equalSign.addEventListener('click', event => {
-    solvedAnswer = solveForDisplay();
-    display.innerText = solvedAnswer;
+    calcDisplayText = solveForDisplay();
+    display.innerText = calcDisplayText;
  })
     
