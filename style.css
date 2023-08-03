@@ -17,7 +17,6 @@ div {
     height: 600px;
     display: flex;
     background-color: rgb(134, 140, 141);
-
     flex-direction: column;
     align-self: center;
 }

@@ -1,4 +1,5 @@
 let calcDisplayText = "";
+let solvedAnswer = " ";
 
 const calculator = {
     add: function addition(a, b){
@@ -52,8 +53,22 @@ operate(4, "*", 6);
 operate(4, "/", 6);
 
 let calcButtons = document.querySelectorAll(".button");
+let display = document.querySelector(".display")
+let operators = document.querySelectorAll(".operator");
+let equalSign = document. querySelector(".equal");
 
 calcButtons.forEach(button => button.addEventListener('click', event => {
-    let button 
-}))
+    calcDisplayText += `${button.id}`;
+    display.innerText = calcDisplayText; 
+ }))
+
+operators.forEach(operator => operator.addEventListener('click', event => {
+    calcDisplayText += ` ${operator.id} `;
+    display.innerText = calcDisplayText;
+ }))
+
+equalSign.forEach(equals => equals.addEventListener('click', event => {
+    //solvedAnswer = Function for solivng equation goes here
+    display.innerText = solvedAnswer;
+ }))
     
