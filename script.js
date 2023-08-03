@@ -1,5 +1,5 @@
 let calcDisplayText = "";
-let solvedAnswer = " ";
+let solvedAnswer = "";
 
 const calculator = {
     add: function addition(a, b){

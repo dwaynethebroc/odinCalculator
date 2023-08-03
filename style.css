@@ -49,4 +49,14 @@ div .row{
 
 .operator {
     background-color: rgb(224, 97, 23);
+    border: 1px solid black;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.equal {
+    border: 1px solid black;
+    font-size: 30px;
+    font-weight: bolder;
+    background-color: yellow;
 }
