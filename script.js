@@ -21,7 +21,7 @@ console.log(calculator.subtract(2,3))
 console.log(calculator.multiply(2,3))
 console.log(calculator.divide(2,3))
 
-function Math(a, b, c){
+function operate(a, b, c){
     let firstNumber = a;
     let operator = b;
     let secondNumber = c; 
@@ -43,3 +43,8 @@ function Math(a, b, c){
         console.log(calculator.divide(firstNumber, secondNumber));
     }
 }
+
+operate(4, "+", 6);
+operate(4, "-", 6);
+operate(4, "*", 6);
+operate(4, "/", 6);

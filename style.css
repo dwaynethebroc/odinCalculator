@@ -1,0 +1,17 @@
+body {
+    background-color: tan;
+}
+
+div {
+    border: 1px solid black;
+    flex-grow: 1;
+    text-align: center;
+}
+
+div .row{
+    display: flex;
+}
+
+.title {
+    text-align: center;
+}
