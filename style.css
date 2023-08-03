@@ -16,15 +16,15 @@ div {
     width: 600px;
     height: 600px;
     display: flex;
+    background-color: rgb(134, 140, 141);
+
     flex-direction: column;
     align-self: center;
-
-    background-color: rgb(134, 140, 141);
 }
 
 .display {
     border: 1px solid black;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bolder;
     background-color: white;
 }

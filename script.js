@@ -1,3 +1,5 @@
+let calcDisplayText = "";
+
 const calculator = {
     add: function addition(a, b){
         return a + b;
@@ -48,3 +50,10 @@ operate(4, "+", 6);
 operate(4, "-", 6);
 operate(4, "*", 6);
 operate(4, "/", 6);
+
+let calcButtons = document.querySelectorAll(".button");
+
+calcButtons.forEach(button => button.addEventListener('click', event => {
+    let button 
+}))
+    
