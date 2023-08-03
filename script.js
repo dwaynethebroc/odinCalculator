@@ -6,6 +6,7 @@ let display = document.querySelector(".display")
 let operators = document.querySelectorAll(".operator");
 let equalSign = document. querySelector(".equal");
 let clearButton = document.querySelector(".clear");
+let backspaceButton = document.querySelector(".backspace")
 
 const calculator = {
     add: function addition(a, b){
@@ -73,9 +74,15 @@ operators.forEach(operator => operator.addEventListener('click', event => {
     display.innerText = calcDisplayText;
  }))
 
+backspaceButton.addEventListener('click', event => {
+    let backspaceCalc = calcDisplayText.slice(0, -1);
+
+    calcDisplayText = backspaceCalc;
+    display.innerText = calcDisplayText; 
+ })
+
 clearButton.addEventListener('click', event => {
     calcDisplayText = ``;
-    calcDisplayText += ``;
     display.innerText = ""; 
  })
 

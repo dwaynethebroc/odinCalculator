@@ -67,3 +67,10 @@ div .row{
     font-weight: bolder;
     background-color: salmon;
 }
+
+.backspace {
+    border: 1px solid black;
+    font-size: 30px;
+    font-weight: bolder;
+    background-color: rgb(114, 250, 186);
+}
