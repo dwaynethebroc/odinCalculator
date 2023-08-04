@@ -71,10 +71,12 @@ function solveForDisplay() {
     return solved;
 }
 
+
 calcButtons.forEach(button => button.addEventListener('click', event => {
     calcDisplayText += `${button.id}`;
     display.innerText = calcDisplayText; 
  }))
+
 
 operators.forEach(operator => operator.addEventListener('click', event => {
     
@@ -156,6 +158,75 @@ equalSign.addEventListener('click', event => {
         display.innerText = calcDisplayText;
     }
     
+ })
+
+ document.addEventListener('keydown', event => {
+    if(event.defaultPrevented){
+        return;
+    }
+
+    switch (event.code){
+        case "Digit0":
+
+        calcDisplayText += `${event.key}`;
+        display.innerText = calcDisplayText; 
+        break;
+
+        case "Digit1":
+
+        calcDisplayText += `${event.key}`;
+        display.innerText = calcDisplayText; 
+        break;
+
+        case "Digit2":
+
+        calcDisplayText += `${event.key}`;
+        display.innerText = calcDisplayText; 
+        break;
+
+        case "Digit3":
+
+        calcDisplayText += `${event.key}`;
+        display.innerText = calcDisplayText; 
+        break;
+
+        case "Digit4":
+
+        calcDisplayText += `${event.key}`;
+        display.innerText = calcDisplayText; 
+        break;
+
+        case "Digit5":
+
+        calcDisplayText += `${event.key}`;
+        display.innerText = calcDisplayText; 
+        break;
+
+        case "Digit6":
+
+        calcDisplayText += `${event.key}`;
+        display.innerText = calcDisplayText; 
+        break;
+
+        case "Digit7":
+
+        calcDisplayText += `${event.key}`;
+        display.innerText = calcDisplayText; 
+        break;
+
+        case "Digit8":
+
+        calcDisplayText += `${event.key}`;
+        display.innerText = calcDisplayText; 
+        break;
+
+        case "Digit9":
+
+        calcDisplayText += `${event.key}`;
+        display.innerText = calcDisplayText; 
+        break;
+
+    }
  })
 
 
