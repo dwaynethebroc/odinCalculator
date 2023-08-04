@@ -5,7 +5,8 @@ let display = document.querySelector(".display")
 let operators = document.querySelectorAll(".operator");
 let equalSign = document. querySelector(".equal");
 let clearButton = document.querySelector(".clear");
-let backspaceButton = document.querySelector(".backspace")
+let backspaceButton = document.querySelector(".backspace");
+let periodButton = document.querySelector(".period");
 
 const calculator = {
     add: function addition(a, b){
@@ -51,13 +52,16 @@ function operate(a, b, c){
 function solveForDisplay() {
     
     const array = calcDisplayText.split(' ', 3);
-    let firstNumber = Number(array[0]);
+    let firstNumber = parseFloat(array[0]);
     let operator = array[1];
-    let secondNumber = Number(array[2]);
+    let secondNumber = parseFloat(array[2]);
     let solved; 
     
     if (operator === "/" && secondNumber === 0){
         solved = `You have blown up the universe`;
+    }
+    else if (!secondNumber){
+        solved = `2 numbers required for calculation`;
     }
     else {
         solved = operate(firstNumber, operator, secondNumber);
@@ -109,8 +113,37 @@ clearButton.addEventListener('click', event => {
  })
 
 equalSign.addEventListener('click', event => {
-    calcDisplayText = solveForDisplay();
-    display.innerText = calcDisplayText;
+    let solution;
+    //if 1 number only
+    if(/^\S*$/.test(calcDisplayText)) {
+        display.innerText = calcDisplayText; 
+    }
+    else{
+        solution = solveForDisplay();
+        
+        if (solution === `2 numbers required for calculation`){
+            return;
+        }
+        else{
+            calcDisplayText = solution;
+            display.innerText = calcDisplayText;
+        }
+        
+    }
+    
+ })
+
+ periodButton.addEventListener('click', event => {
+    let period = "."
+    
+    if (calcDisplayText.includes(period)){
+        return;
+    }
+    else{
+        calcDisplayText += `${periodButton.id}`;
+        display.innerText = calcDisplayText;
+    }
+    
  })
 
 
