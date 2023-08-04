@@ -226,7 +226,97 @@ equalSign.addEventListener('click', event => {
         display.innerText = calcDisplayText; 
         break;
 
-    }
+        case "Backspace":
+
+        calcDisplayText = display.innerText;
+        let backspaceCalc = calcDisplayText.slice(0, -1);
+
+        calcDisplayText = backspaceCalc;
+        display.innerText = calcDisplayText; 
+        break;
+
+        case "Period":
+
+        let period = "."
+    
+        if (calcDisplayText.includes(period)){
+            return;
+        }
+        else{
+            calcDisplayText += `${periodButton.id}`;
+            display.innerText = calcDisplayText;
+        }
+        break;
+
+        case "Enter":
+
+        let solution;
+        //if 1 number only
+        if(/^\S*$/.test(calcDisplayText)) {
+            display.innerText = calcDisplayText; 
+        }
+        else{
+            solution = solveForDisplay();
+            
+            if (solution === ``){
+                return;
+            }
+            else{
+                calcDisplayText = solution;
+                display.innerText = calcDisplayText;
+            }
+            
+        }
+        break;
+
+        case "Minus":
+
+        if (/\s/.test(calcDisplayText)){
+            let array = calcDisplayText.split(' ');
+            let solve;
+            //hit two operators in a row, 2 numbers required for calculation appears
+    
+            if (array.length === 3){
+                solve = solveForDisplay();
+                
+                if (solve === ''){
+                    display.innerText = calcDisplayText;
+                    array.length = 0;
+                }
+                else {
+                    calcDisplayText = solve;
+                    calcDisplayText += ` ${event.key} `
+                    display.innerText = calcDisplayText;
+                    array.length = 0;
+                }
+    
+            }
+            else if (array.length < 3){
+                calcDisplayText += ` ${event.key} `;
+                display.innerText = calcDisplayText;
+                array.length = 0;
+            }
+        }
+        else {
+            calcDisplayText += ` ${event.key} `;
+            display.innerText = calcDisplayText;
+        }
+        break;
+
+        
+
+
+
+        
+
+
+
+
+
+
+
+        
+    }    
  })
 
 
