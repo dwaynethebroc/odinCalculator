@@ -61,7 +61,7 @@ function solveForDisplay() {
         solved = `You have blown up the universe`;
     }
     else if (!secondNumber){
-        solved = `2 numbers required for calculation`;
+        solved = ``;
     }
     else {
         solved = operate(firstNumber, operator, secondNumber);
@@ -79,12 +79,14 @@ operators.forEach(operator => operator.addEventListener('click', event => {
     
     if (/\s/.test(calcDisplayText)){
         let array = calcDisplayText.split(' ');
+        //hit two operators in a row, 2 numbers required for calculation appears
 
         if (array.length === 3){
             calcDisplayText = solveForDisplay();
             calcDisplayText += ` ${operator.id} `
             display.innerText = calcDisplayText;
             array.length = 0;
+
         }
         else if (array.length < 3){
             calcDisplayText += ` ${operator.id} `;
@@ -109,7 +111,7 @@ backspaceButton.addEventListener('click', event => {
 
 clearButton.addEventListener('click', event => {
     calcDisplayText = ``;
-    display.innerText = ""; 
+    display.innerText = "0"; 
  })
 
 equalSign.addEventListener('click', event => {
@@ -121,7 +123,7 @@ equalSign.addEventListener('click', event => {
     else{
         solution = solveForDisplay();
         
-        if (solution === `2 numbers required for calculation`){
+        if (solution === ``){
             return;
         }
         else{
