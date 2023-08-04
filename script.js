@@ -28,23 +28,23 @@ const calculator = {
 function operate(a, b, c){
     let firstNumber = a;
     let operator = b;
-    let secondNumber = c; 
+    let secondNumber = c;
 
     if (operator === "+"){
         console.log(calculator.add(firstNumber, secondNumber));
-        return calculator.add(firstNumber, secondNumber);
+        return parseFloat(calculator.add(firstNumber, secondNumber).toFixed(15));
     }
     else if(operator === "-"){
         console.log(calculator.subtract(firstNumber, secondNumber));
-        return calculator.subtract(firstNumber, secondNumber);
+        return parseFloat(calculator.subtract(firstNumber, secondNumber).toFixed(15));
     }
     else if(operator === "*"){
         console.log(calculator.multiply(firstNumber, secondNumber));
-        return calculator.multiply(firstNumber, secondNumber);
+        return parseFloat(calculator.multiply(firstNumber, secondNumber).toFixed(15));
     }
     else if(operator === "/"){
         console.log(calculator.divide(firstNumber, secondNumber));
-        return calculator.divide(firstNumber, secondNumber);
+        return parseFloat(calculator.divide(firstNumber, secondNumber).toFixed(15));
     }
 }
 
@@ -54,8 +54,15 @@ function solveForDisplay() {
     let firstNumber = Number(array[0]);
     let operator = array[1];
     let secondNumber = Number(array[2]);
+    let solved; 
+    
+    if (operator === "/" && secondNumber === 0){
+        solved = `You have blown up the universe`;
+    }
+    else {
+        solved = operate(firstNumber, operator, secondNumber);
+    }
 
-    let solved = operate(firstNumber, operator, secondNumber);
     return solved;
 }
 
@@ -89,6 +96,7 @@ operators.forEach(operator => operator.addEventListener('click', event => {
  }))
 
 backspaceButton.addEventListener('click', event => {
+    calcDisplayText = display.innerText;
     let backspaceCalc = calcDisplayText.slice(0, -1);
 
     calcDisplayText = backspaceCalc;
