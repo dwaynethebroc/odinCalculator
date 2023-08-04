@@ -28,7 +28,7 @@ div {
 
 .display {
     border: 1px solid black;
-    font-size: 30px;
+    font-size: 40px;
     font-weight: bolder;
     background-color: yellowgreen;
     text-align: right;
@@ -73,7 +73,7 @@ div .row{
 
 .clear {
     border: 1px solid black;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bolder;
     background-color: coral;
     border-radius: 25px;
@@ -81,7 +81,7 @@ div .row{
 
 .backspace {
     border: 1px solid black;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bolder;
     background-color: rgb(218, 118, 255);
     border-radius: 25px;

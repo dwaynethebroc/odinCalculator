@@ -60,8 +60,9 @@ function solveForDisplay() {
     if (operator === "/" && secondNumber === 0){
         solved = `You have blown up the universe`;
     }
+    //something wrong here
     else if (!secondNumber){
-        solved = ``;
+        solved = '';
     }
     else {
         solved = operate(firstNumber, operator, secondNumber);
@@ -79,13 +80,22 @@ operators.forEach(operator => operator.addEventListener('click', event => {
     
     if (/\s/.test(calcDisplayText)){
         let array = calcDisplayText.split(' ');
+        let solve;
         //hit two operators in a row, 2 numbers required for calculation appears
 
         if (array.length === 3){
-            calcDisplayText = solveForDisplay();
-            calcDisplayText += ` ${operator.id} `
-            display.innerText = calcDisplayText;
-            array.length = 0;
+            solve = solveForDisplay();
+            
+            if (solve === ''){
+                display.innerText = calcDisplayText;
+                array.length = 0;
+            }
+            else {
+                calcDisplayText = solve;
+                calcDisplayText += ` ${operator.id} `
+                display.innerText = calcDisplayText;
+                array.length = 0;
+            }
 
         }
         else if (array.length < 3){
