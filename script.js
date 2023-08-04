@@ -1,5 +1,4 @@
 let calcDisplayText = "";
-let solvedAnswer = "";
 
 let calcButtons = document.querySelectorAll(".button");
 let display = document.querySelector(".display")
@@ -25,11 +24,6 @@ const calculator = {
         return a / b;
     },
 }
-
-console.log(calculator.add(2,3))
-console.log(calculator.subtract(2,3))
-console.log(calculator.multiply(2,3))
-console.log(calculator.divide(2,3))
 
 function operate(a, b, c){
     let firstNumber = a;
@@ -71,8 +65,27 @@ calcButtons.forEach(button => button.addEventListener('click', event => {
  }))
 
 operators.forEach(operator => operator.addEventListener('click', event => {
-    calcDisplayText += ` ${operator.id} `;
-    display.innerText = calcDisplayText;
+    
+    if (/\s/.test(calcDisplayText)){
+        let array = calcDisplayText.split(' ');
+
+        if (array.length === 3){
+            calcDisplayText = solveForDisplay();
+            calcDisplayText += ` ${operator.id} `
+            display.innerText = calcDisplayText;
+            array.length = 0;
+        }
+        else if (array.length < 3){
+            calcDisplayText += ` ${operator.id} `;
+            display.innerText = calcDisplayText;
+            array.length = 0;
+        }
+    }
+    else {
+        calcDisplayText += ` ${operator.id} `;
+        display.innerText = calcDisplayText;
+    }
+    
  }))
 
 backspaceButton.addEventListener('click', event => {
@@ -91,4 +104,6 @@ equalSign.addEventListener('click', event => {
     calcDisplayText = solveForDisplay();
     display.innerText = calcDisplayText;
  })
-    
+
+
+
