@@ -72,6 +72,8 @@ function solveForDisplay() {
 }
 
 
+
+
 calcButtons.forEach(button => button.addEventListener('click', event => {
     calcDisplayText += `${button.id}`;
     display.innerText = calcDisplayText; 
@@ -161,95 +163,25 @@ equalSign.addEventListener('click', event => {
  })
 
  document.addEventListener('keydown', event => {
+
+
     if(event.defaultPrevented){
         return;
     }
 
-    switch (event.code){
-        case "Digit0":
-
+    if(event.code === 'Digit0' || event.code === 'Digit1' || event.code === 'Digit2' || event.code === 'Digit3' | event.code === 'Digit4' || event.code === 'Digit5' || event.code === 'Digit6' || event.code === 'Digit7' || event.code === 'Digit8' ||event.code === 'Digit9'){
+        
         calcDisplayText += `${event.key}`;
         display.innerText = calcDisplayText; 
-        break;
-
-        case "Digit1":
-
-        calcDisplayText += `${event.key}`;
-        display.innerText = calcDisplayText; 
-        break;
-
-        case "Digit2":
-
-        calcDisplayText += `${event.key}`;
-        display.innerText = calcDisplayText; 
-        break;
-
-        case "Digit3":
-
-        calcDisplayText += `${event.key}`;
-        display.innerText = calcDisplayText; 
-        break;
-
-        case "Digit4":
-
-        calcDisplayText += `${event.key}`;
-        display.innerText = calcDisplayText; 
-        break;
-
-        case "Digit5":
-
-        calcDisplayText += `${event.key}`;
-        display.innerText = calcDisplayText; 
-        break;
-
-        case "Digit6":
-
-        calcDisplayText += `${event.key}`;
-        display.innerText = calcDisplayText; 
-        break;
-
-        case "Digit7":
-
-        calcDisplayText += `${event.key}`;
-        display.innerText = calcDisplayText; 
-        break;
-
-        case "Digit8":
-
-        calcDisplayText += `${event.key}`;
-        display.innerText = calcDisplayText; 
-        break;
-
-        case "Digit9":
-
-        calcDisplayText += `${event.key}`;
-        display.innerText = calcDisplayText; 
-        break;
-
-        case "Backspace":
-
+    }
+    else if (event.code === 'Backspace'){
         calcDisplayText = display.innerText;
         let backspaceCalc = calcDisplayText.slice(0, -1);
 
         calcDisplayText = backspaceCalc;
-        display.innerText = calcDisplayText; 
-        break;
-
-        case "Period":
-
-        let period = "."
-    
-        if (calcDisplayText.includes(period)){
-            return;
-        }
-        else{
-            calcDisplayText += `${periodButton.id}`;
-            display.innerText = calcDisplayText;
-        }
-        break;
-
-        case "Enter":
-
+        display.innerText = calcDisplayText;
+    }
+    else if (event.code === 'Enter' || event.code === 'Equal'){
         let solution;
         //if 1 number only
         if(/^\S*$/.test(calcDisplayText)) {
@@ -265,12 +197,24 @@ equalSign.addEventListener('click', event => {
                 calcDisplayText = solution;
                 display.innerText = calcDisplayText;
             }
-            
         }
-        break;
-
-        case "Minus":
-
+    }
+    else if(event.code === 'Period'){
+        let period = "."
+    
+        if (calcDisplayText.includes(period)){
+            return;
+        }
+        else{
+            calcDisplayText += `${periodButton.id}`;
+            display.innerText = calcDisplayText;
+        }
+    }
+    else if(event.code === 'KeyC'){
+        calcDisplayText = ``;
+        display.innerText = "0";
+    }
+    else if (event.code === 'Slash' || event.code === 'Minus' || (event.code === 'Equal' && event.shiftKey === true) || event.shiftKey === true && event.code === 'Digit8'){
         if (/\s/.test(calcDisplayText)){
             let array = calcDisplayText.split(' ');
             let solve;
@@ -301,22 +245,7 @@ equalSign.addEventListener('click', event => {
             calcDisplayText += ` ${event.key} `;
             display.innerText = calcDisplayText;
         }
-        break;
-
-        
-
-
-
-        
-
-
-
-
-
-
-
-        
-    }    
+    }
  })
 
 
