@@ -214,37 +214,40 @@ equalSign.addEventListener('click', event => {
         calcDisplayText = ``;
         display.innerText = "0";
     }
-    else if (event.code === 'Slash' || event.code === 'Minus' || (event.code === 'Equal' && event.shiftKey === true) || event.shiftKey === true && event.code === 'Digit8'){
-        if (/\s/.test(calcDisplayText)){
-            let array = calcDisplayText.split(' ');
-            let solve;
-            //hit two operators in a row, 2 numbers required for calculation appears
-    
-            if (array.length === 3){
-                solve = solveForDisplay();
-                
-                if (solve === ''){
-                    display.innerText = calcDisplayText;
-                    array.length = 0;
+    else if (event.code === 'Slash' || 
+             event.code === 'Minus' || 
+            (event.code === 'Equal' && event.shiftKey === true) || 
+            (event.shiftKey === true && event.code === 'Digit8')) {
+                if (/\s/.test(calcDisplayText)){
+                    let array = calcDisplayText.split(' ');
+                    let solve;
+                    //hit two operators in a row, 2 numbers required for calculation appears
+            
+                    if (array.length === 3){
+                        solve = solveForDisplay();
+                        
+                        if (solve === ''){
+                            display.innerText = calcDisplayText;
+                            array.length = 0;
+                        }
+                        else {
+                            calcDisplayText = solve;
+                            calcDisplayText += ` ${event.key} `
+                            display.innerText = calcDisplayText;
+                            array.length = 0;
+                        }
+            
+                    }
+                    else if (array.length < 3){
+                        calcDisplayText += ` ${event.key} `;
+                        display.innerText = calcDisplayText;
+                        array.length = 0;
+                    }
                 }
                 else {
-                    calcDisplayText = solve;
-                    calcDisplayText += ` ${event.key} `
+                    calcDisplayText += ` ${event.key} `;
                     display.innerText = calcDisplayText;
-                    array.length = 0;
                 }
-    
-            }
-            else if (array.length < 3){
-                calcDisplayText += ` ${event.key} `;
-                display.innerText = calcDisplayText;
-                array.length = 0;
-            }
-        }
-        else {
-            calcDisplayText += ` ${event.key} `;
-            display.innerText = calcDisplayText;
-        }
     }
  })
 
